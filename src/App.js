@@ -7,6 +7,7 @@ class App extends Component {
  id = 2
 
   state = {
+    status: false,
     input: '',
     todos: [
       { id: 0, text: 'ご飯', checked: false },
@@ -59,12 +60,25 @@ class App extends Component {
     });
   }
 
+  openCalendarModal = () => {
+    this.setState({
+      status: true
+    });
+  }
+
+  closeCalendarModal = () => {
+    this.setState({
+      status: false
+    });
+  }
+
  
   render() {
-    const { input, todos } = this.state;
+    const { status, input, todos } = this.state;
   return (
     <TodoListTemplate form = {(<Form value = {input} onChange = {this.handleInput} 
-      onCreate = {this.handleCreate} />)}>
+      onCreate = {this.handleCreate} status = {status} openCalendar = {this.openCalendarModal}
+      closeCalendar = {this.closeCalendarModal} />)}>
       <TodoItemList todos= {todos} onDelete = {this.handleDelete} onToggle= {this.handleToggle} ></TodoItemList>
     </TodoListTemplate>
 

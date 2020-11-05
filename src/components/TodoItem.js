@@ -11,7 +11,7 @@ class TodoItem extends Component {
               }} >
                   &times;
               </div>
-              <div className = {`todo-text ${checked && 'checekd'}`} onClick = {() => {
+              <div className = {`todo-text ${checked && 'checked'}`} onClick = {() => {
                   onToggle(id);
               }}>
                {text}
